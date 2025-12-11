@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link href="favicon.ico" type="image/x-icon" rel="icon"/>
+    <link href="../favicon.ico" type="image/x-icon" rel="icon"/>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Odin Calculator</title>
@@ -12,19 +12,32 @@
     <button onclick="alert('Ska Fela Moya - Don\'t Give Up!')">Don't give up - Do Projects!</button>
     <p><strong>Trust in the Lord</strong> with all your heart, and lean not on your own understanding; 
         <br>in all your ways acknowledge Him, and He shall direct your paths.<br>
-            <em>Proverbs 3:5-6</em></p>
-    <ul>
-       <li>Line 1</li>
-       <li>Line 2</li>
-       <li>Line 3</li>
-    </ul>
-    
-    <ol>
-        <li>One</li>
-        <li>Two</li>
-        <li>Three</li>
-    </ol>
+            <em><strong>Proverbs 3:5-6</strong></em></p>
+    <div id="calculator">
+        <input id="display" readonly>
+    </div>
 
+    <div class="choices">
+        <button onclick="appendToDisplay('+')">+</button>
+        <button onclick="appendToDisplay('7')">7</button>
+        <button onclick="appendToDisplay('8')">8</button>
+        <button onclick="appendToDisplay('9')">9</button>
+        <button onclick="appendToDisplay('-')">-</button>
+        <button onclick="appendToDisplay('4')">4</button>
+        <button onclick="appendToDisplay('5')">5</button>
+        <button onclick="appendToDisplay('6')">6</button>
+        <button onclick="appendToDisplay('*')">*</button>
+        <button onclick="appendToDisplay('1')">1</button>
+        <button onclick="appendToDisplay('2')">2</button>
+        <button onclick="appendToDisplay('3')">3</button>
+        <button onclick="appendToDisplay('/')">/</button>
+        <button onclick="appendToDisplay('0')">0</button>
+        <button onclick="appendToDisplay('.')">.</button>
+        <button onclick="calculate()">=</button>
+        <button onclick="clearDisplay()">C</button>
+    </div>
+
+    <p></p>
     <button id="calculate">Calculate</button>
     <button id="clear">Clear</button>
     <pre id="results"></pre>
