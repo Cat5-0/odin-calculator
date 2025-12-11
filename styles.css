@@ -4,6 +4,7 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
+    background-color: hsl(0, 0%, 95%);
 }
 
 
@@ -11,11 +12,12 @@ body {
     font-family: Arial, sans-serif;
     background-color: hsl(0, 0%, 15%);
     border-radius: 15px;
-    max-width: 350px;
+    max-width: 300px;
     overflow: hidden;
 }
 
 #display {
+    color: white;
     width: 100%;
     padding: 20px;
     font-size: 3rem;
@@ -45,4 +47,20 @@ button {
 
 button:hover {
     background-color: hsl(0, 0%, 40%);
+}
+
+button:active {
+    background-color: hsl(0, 0%, 50%);
+}
+
+.operator-btn {
+    background-color: hsl(35, 90%, 45%);
+}
+
+.operator-btn:hover {
+    background-color: hsl(35, 90%, 55%);
+}
+
+.operator-btn:active {
+    background-color: hsl(35, 90%, 65%);
 }

@@ -2,13 +2,23 @@ let numb1 = 0;
 let numb2 = 0;
 let operator = "";
 
+const display = document.getElementById("display");
+
+function appendToDisplay(input) {
+    display.value += input;
+}
+
+function clearDisplay() {
+    display.value = "";
+}
+
 function operate(operator, numb1, numb2) {
     switch (operator) {
         case '+':
             return add(numb1, numb2);
         case '-':
             return subtract(numb1, numb2);
-        case '*':
+        case 'x':
             return multiply(numb1, numb2);
         case '/':
             return divide(numb1, numb2);
