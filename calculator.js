@@ -11,15 +11,21 @@ const topSymbols = ["C", "+/-", "%"];
 
 
 for (let i = 0; i < buttonValues.length; i++) {
-    // adding button names from array
+    // adding button names from array .11
     let value = buttonValues[i];
     let button = document.createElement("button");
     button.innerText = value;
 
     // style button colors Pseudocode .18
-     
+    if (rightSymbols.includes(value)) {
+        button.style.backgroundColor = "#FF9500";
+    }
+    else if (topSymbols.includes(value)) {
+        button.style.backgroundColor = "#D4D4D2";
+        button.style.color = "#1C1C1C";
+    }
 
-    // add buttons to buttons div 
+    // add buttons to buttons div .12
     document.getElementById("buttons").appendChild(button);
 } 
 
