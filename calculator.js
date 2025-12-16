@@ -7,7 +7,21 @@ const buttonValues = [
 ];
 
 const rightSymbols = ["/", "x", "-", "+", "="];
-const topSymbols = ["C", "+/-", "%"];
+const topSymbols = ["C", "+/-", "%"]; // modify..ers
+
+const display = document.getElementById("display");
+
+// a + b, a x b, a - b, a / b Pseudocode .25
+let a = 0;
+let operator = null;
+let b = null;
+display.value = "0";
+
+function clearAll() {
+    a = 0;
+    operator = null;
+    b = null;
+}
 
 
 for (let i = 0; i < buttonValues.length; i++) {
@@ -24,6 +38,68 @@ for (let i = 0; i < buttonValues.length; i++) {
         button.style.backgroundColor = "#D4D4D2";
         button.style.color = "#1C1C1C";
     }
+
+    // process button clicks
+    button.addEventListener("click", function() {
+        if (rightSymbols.includes(value)) {
+            if (value === "=") {
+                if (a != null) {
+                    b = display.value;
+                    let numA = Number(a);
+                    let numB = Number(b);
+
+                    if (operator === "/") {
+                        if (numB === 0) {
+                            display.value = "Dummy";
+                            // clearAll();
+                        } else {
+                        display.value = numA / numB;
+                        }
+                    } else if (operator === "x") {
+                        display.value = numA * numB;
+                    } else if (operator === "-") {
+                        display.value = numA - numB;
+                    } else if (operator === "+") {
+                        display.value = numA + numB;
+                    }
+                }
+                clearAll();
+            } else {
+                operator = value;
+                a = display.value;
+                display.value = "";
+            }
+
+        } else if (topSymbols.includes(value)) {
+            if (value === "C") {
+                clearAll();
+                display.value = "0";
+            } else if (value === "+/-") {
+                if (display.value != "" && display.value != "0") {
+                    if (display.value[0] === "-") {
+                        display.value = display.value.slice(1);
+                    } else {
+                        display.value = "-" + display.value;
+                    }
+                    
+                }
+            } else if (value === "%") {
+                display.value = Number(display.value)/100;
+            }
+
+        } else { // numbers or .
+            if (value === ".") {
+                if (display.value != "" && !display.value.includes(value)) {
+                    display.value += value;
+                }
+            } else if (display.value === "0") {
+                display.value = value;
+            } else {
+                display.value += value;
+            }
+        }
+        
+    })
 
     // add buttons to buttons div .12
     document.getElementById("buttons").appendChild(button);

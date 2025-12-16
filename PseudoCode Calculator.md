@@ -22,3 +22,16 @@ PseudoCode Calculator
 
 
 . calculator.js
+. create three variables, one for each part of the operation. (calculator .14)
+. get display element (calculator .12)
+. add event listener for display ID (calculator .43)
+. if right symbols (calculator .43)
+. if top symbols
+. if numbers or decimal place
+. split group if numbers only
+. if decimal point single onlyor if display value is 0 then replace value to limit to single
+. before number string
+. if percentage and + / - value
+. if clear button call clear function
+. operators if value === to = else an operator
+.  
