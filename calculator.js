@@ -1,30 +1,44 @@
-// 1. press first number - save first number
-// 2. press operator - save operator
-// 3. press second number - save second number
-// 4. press equal sign - make calculation
+// Objevt values
+const calculator = {
+    displayValue: '0',
+    firstOperand: null,
+    waitingForSecondOperand: false,
+    operator: null,
+};
 
-let firstNumber;
-let secondNumber;
+// Update Display
+const updateDisplay = () => {
+    const display = document.querySelector('.screen');
+    display.value = calculator.displayValue;
+};
+updateDisplay();
 
-let operation;
+// Function key press
+const keys = document.querySelector('.keys');
+keys.addEventListener('click', (event) => {
+    const {target} = event;
+    if (!target.matches('button')) {
+        return;
+    }
 
+    if (target.classList.contains('operator')) {
+        handleOperator(target.value);
+        updateDisplay();
+        return;
+    }
 
-function clearDisplay() {
-    console.log("clear");
-}
+    if (target.classList.contains('decimal')) {
+        inputDecimal(target.value);
+        updateDisplay();
+        return;
+    }
 
-function getNumber(num) {
-    console.log(num);
-}
+    if (target.classList.contains('clearDisplay')) {
+        resetCalculator();
+        updateDisplay();
+        return;
+    }
 
-function getOperator(operator) {
-    console.log(operator);
-}
-
-function getSymbol(symbol) {
-    console.log(symbol);
-}
-
-function getEquals(equals) {
-    console.log(equals);
-}
+    inputDigit(target.value);
+    updateDisplay();
+});

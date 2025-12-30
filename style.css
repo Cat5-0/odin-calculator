@@ -1,54 +1,75 @@
-/* . is line number in Pseudocode Calculator */
-body{
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
     background-color: black;
-    font-family: Arial, Helvetica, sans-serif;
-    
-    /* display: flex;
-    justify-content: center;
-    align-items: center; */
 }
+
 .container {
-    margin: 10vh auto;
-    width: 500px;
-    padding: 2rem;
-    text-align: center;
-    border-radius: 10px;
-    background-color: #272727;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 325px;
 }
 
-.header {
-    margin: 2rem;
-    color: #666;
-}
-
-input {
-    width: 370px;
-    padding: 0.5rem 2rem;
+.screen {
+    width: 100%;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
     font-size: 3rem;
-    border-radius: 10px;
+    height: 80px;
+    border: none;
+    background-color: transparent;
+    color: #fff;
     text-align: right;
-    background-color: #272727;
-    color: lightgray;
-}
-
-.buttons {
-    margin: auto;
-    width: 450px;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    flex-wrap: wrap;
-    justify-content: center;
+    padding-right: 20px;
+    padding-left: 10px;
 }
 
 button {
-    padding: 40px;
-    font-size: 20px;
-    margin: 0.5rem;
-    max-width: 100px;
-    max-height: 100px;
-    text-align: center;
-    border-radius: 10%;
-    font-weight: 900;
-    background-color: #272727;
-    color: lightgray;
+    height: 60px;
+    border-radius: 20px;
+    border: 1px solid #c4c4c4;
+    background-color: rgba(0, 0, 0, 0.3);
+    font-size: 2rem;
+    color: #f8f8f8;
+}
+
+button:hover {
+    background-color: rgba(255, 255, 255, 0.4);
+}
+
+button:active {
+        background-color: rgba(186, 186, 186, 0.4);
+}
+
+.clearDisplay:hover {
+    background-color: rgba(241, 115, 119, 0.4);
+}
+
+.equalSign {
+    width: 100%;
+    grid-area: 5/ 3/ 5 /5
+}
+
+.equalSign:hover {
+   background-color: rgba(78, 159, 212, 0.4);
+}
+
+.operator {
+    background-color: rgba(255, 165, 0, 0.4);    
+}
+
+.keys {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    padding: 10px;
+
 }
