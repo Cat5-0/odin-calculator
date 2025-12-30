@@ -1,53 +1,54 @@
 /* . is line number in Pseudocode Calculator */
-body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-/* .17 Style div calculator*/
-#calculator {
+body{
+    background-color: black;
     font-family: Arial, Helvetica, sans-serif;
-    background-color: #1C1C1C;
-    padding: 40px 5px 5px 5px;
-    width: 400px;
-    max-width: 400px;
-
+    
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
+}
+.container {
+    margin: 10vh auto;
+    width: 500px;
+    padding: 2rem;
+    text-align: center;
+    border-radius: 10px;
+    background-color: #272727;
 }
 
-/* .20 Style Display */
-#display {
-    background-color: #505050;
-    color: white;
+.header {
+    margin: 2rem;
+    color: #666;
+}
+
+input {
+    width: 370px;
+    padding: 0.5rem 2rem;
+    font-size: 3rem;
+    border-radius: 10px;
     text-align: right;
-    font-size: 50px;
-    width: 100%;
-    box-sizing: border-box;
+    background-color: #272727;
+    color: lightgray;
 }
 
-/* .15 Arrange buttons in Grid */
-#buttons {
+.buttons {
+    margin: auto;
+    width: 450px;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 8px;
-    padding: 8px;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
-/* .16 Stle Buttons */
-#buttons button {
-    background-color: #505050;
-    color: white;
-    font-size: 36px;
+button {
+    padding: 40px;
+    font-size: 20px;
+    margin: 0.5rem;
+    max-width: 100px;
+    max-height: 100px;
     text-align: center;
-    width: 80px;
-    height: 80px;
-    border-radius: 40px;
-    border: none;
-}
-
-/* .19 Style buttons on hover and click */
-#buttons button:hover {
-    opacity: 70%;
-}
-#buttons button:active {
-    opacity: 90%;
+    border-radius: 10%;
+    font-weight: 900;
+    background-color: #272727;
+    color: lightgray;
 }
