@@ -42,3 +42,20 @@ keys.addEventListener('click', (event) => {
     inputDigit(target.value);
     updateDisplay();
 });
+
+// Input Digit
+const inputDigit = (digit) => {
+    const {displayValue, waitingForSecondOperand} = calculator;
+
+    if (waitingForSecondOperand === true) {
+        calculator.displayValue = digit;
+        calculator.waitingForSecondOperand = false;
+    } else {
+        calculator.displayValue = 
+        displayValue === '0' ? digit : displayValue + digit;
+    }
+};
+
+// start Wednesday Input Decimal 23:57
+
+// Input Decimal
