@@ -62,7 +62,7 @@ function getEquals() {
     if (operation === '+') {
         result = firstNumber + secondNumber;
         display.value = result;
-        firstNumber = result;``
+        firstNumber = result;
         secondNumber = null;
         numArray = [];
         secondNumArray = [];
