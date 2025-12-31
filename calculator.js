@@ -12,6 +12,7 @@ let secondNumber;
 let step = 0;
 let result = 0;
 let operation;
+let rollingResult;
 
 // Number arrays for first and second input numbers
 let numArray = [];
@@ -61,6 +62,9 @@ function getEquals() {
     // console.log("calculate equals")    
     if (operation === '+') {
         result = firstNumber + secondNumber;
+        rollingResult = result;
+        console.log(`${result} firstNumber + secondNumber`);
+        console.log(`${rollingResult} rollingResult`);
         display.value = result;
         firstNumber = result;
         secondNumber = null;
@@ -68,6 +72,7 @@ function getEquals() {
         secondNumArray = [];
 
     } else if (operation === '-') {
+        console.log(`${result} before minus`);
         result = firstNumber - secondNumber;
         display.value = result;
         firstNumber = result;
