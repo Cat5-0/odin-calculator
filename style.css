@@ -1,75 +1,53 @@
-* {
-    margin: 0;
-    padding: 0;
+/* . is line number in Pseudocode Calculator */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/* .17 Style div calculator*/
+#calculator {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #1C1C1C;
+    padding: 40px 5px 5px 5px;
+    width: 400px;
+    max-width: 400px;
+
+}
+
+/* .20 Style Display */
+#display {
+    background-color: #505050;
+    color: white;
+    text-align: right;
+    font-size: 50px;
+    width: 100%;
     box-sizing: border-box;
 }
 
-body {
-    background-color: black;
-}
-
-.container {
-    border: 1px solid #ccc;
-    border-radius: 20px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 325px;
-}
-
-.screen {
-    width: 100%;
-    border-top-left-radius: 20px;
-    border-top-right-radius: 20px;
-    font-size: 3rem;
-    height: 80px;
-    border: none;
-    background-color: transparent;
-    color: #fff;
-    text-align: right;
-    padding-right: 20px;
-    padding-left: 10px;
-}
-
-button {
-    height: 60px;
-    border-radius: 20px;
-    border: 1px solid #c4c4c4;
-    background-color: rgba(0, 0, 0, 0.3);
-    font-size: 2rem;
-    color: #f8f8f8;
-}
-
-button:hover {
-    background-color: rgba(255, 255, 255, 0.4);
-}
-
-button:active {
-        background-color: rgba(186, 186, 186, 0.4);
-}
-
-.clearDisplay:hover {
-    background-color: rgba(241, 115, 119, 0.4);
-}
-
-.equalSign {
-    width: 100%;
-    grid-area: 5/ 3/ 5 /5
-}
-
-.equalSign:hover {
-   background-color: rgba(78, 159, 212, 0.4);
-}
-
-.operator {
-    background-color: rgba(255, 165, 0, 0.4);    
-}
-
-.keys {
+/* .15 Arrange buttons in Grid */
+#buttons {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 10px;
-    padding: 10px;
+    gap: 8px;
+    padding: 8px;
+}
 
+/* .16 Stle Buttons */
+#buttons button {
+    background-color: #505050;
+    color: white;
+    font-size: 36px;
+    text-align: center;
+    width: 80px;
+    height: 80px;
+    border-radius: 40px;
+    border: none;
+}
+
+/* .19 Style buttons on hover and click */
+#buttons button:hover {
+    opacity: 70%;
+}
+#buttons button:active {
+    opacity: 90%;
 }

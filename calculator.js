@@ -1,61 +1,106 @@
-// Object values
-const calculator = {
-    displayValue: '0',
-    firstOperand: null,
-    waitingForSecondOperand: false,
-    operator: null,
-};
+const buttonValues = [
+    "C", "+/-", "%", "/",
+    "7", "8", "9", "x",
+    "4", "5", "6", "-", 
+    "1", "2", "3", "+",
+    "0", ".", "="
+];
 
-// Update Display
-const updateDisplay = () => {
-    const display = document.querySelector('.screen');
-    display.value = calculator.displayValue;
-};
-updateDisplay();
+const rightSymbols = ["/", "x", "-", "+", "="];
+const topSymbols = ["C", "+/-", "%"]; // modify..ers
 
-// Function key press
-const keys = document.querySelector('.keys');
-keys.addEventListener('click', (event) => {
-    const {target} = event;
-    if (!target.matches('button')) {
-        return;
+const display = document.getElementById("display");
+
+// a + b, a x b, a - b, a / b Pseudocode .25
+let a = 0;
+let operator = null;
+let b = null;
+display.value = "0";
+
+function clearAll() {
+    a = 0;
+    operator = null;
+    b = null;
+}
+
+
+for (let i = 0; i < buttonValues.length; i++) {
+    // adding button names from array .11
+    let value = buttonValues[i];
+    let button = document.createElement("button");
+    button.innerText = value;
+
+    // style button colors Pseudocode .18
+    if (rightSymbols.includes(value)) {
+        button.style.backgroundColor = "#FF9500";
+    }
+    else if (topSymbols.includes(value)) {
+        button.style.backgroundColor = "#D4D4D2";
+        button.style.color = "#1C1C1C";
     }
 
-    if (target.classList.contains('operator')) {
-        handleOperator(target.value);
-        updateDisplay();
-        return;
-    }
+    // process button clicks
+    button.addEventListener("click", function() {
+        if (rightSymbols.includes(value)) {
+            if (value === "=") {
+                if (a != null) {
+                    b = display.value;
+                    let numA = Number(a);
+                    let numB = Number(b);
 
-    if (target.classList.contains('decimal')) {
-        inputDecimal(target.value);
-        updateDisplay();
-        return;
-    }
+                    if (operator === "/") {
+                        if (numB === 0) {
+                            display.value = "Dummy";
+                        } else {
+                        display.value = numA.toFixed(7) / numB.toFixed(7);
+                        }
+                    } else if (operator === "x") {
+                        display.value = numA * numB;
+                    } else if (operator === "-") {
+                        display.value = numA - numB;
+                    } else if (operator === "+") {
+                        display.value = numA + numB;
+                    }
+                }
+                clearAll();
+            } else {
+                operator = value;
+                a = display.value;
+                display.value = "";
+            }
 
-    if (target.classList.contains('clearDisplay')) {
-        resetCalculator();
-        updateDisplay();
-        return;
-    }
+        } else if (topSymbols.includes(value)) {
+            if (value === "C") {
+                clearAll();
+                display.value = "0";
+            } else if (value === "+/-") {
+                if (display.value != "" && display.value != "0") {
+                    if (display.value[0] === "-") {
+                        display.value = display.value.slice(1);
+                    } else {
+                        display.value = "-" + display.value;
+                    }
+                    
+                }
+            } else if (value === "%") {
+                display.value = Number(display.value)/100;
+            }
 
-    inputDigit(target.value);
-    updateDisplay();
-});
+        } else { // numbers or .
+            if (value === ".") {
+                if (display.value != "" && !display.value.includes(value)) {
+                    display.value += value;
+                }
+            } else if (display.value === "0") {
+                display.value = value;
+            } else {
+                display.value += value;
+            }
+        }
+        
+    })
 
-// Input Digit
-const inputDigit = (digit) => {
-    const {displayValue, waitingForSecondOperand} = calculator;
+    // add buttons to buttons div .12
+    document.getElementById("buttons").appendChild(button);
+} 
 
-    if (waitingForSecondOperand === true) {
-        calculator.displayValue = digit;
-        calculator.waitingForSecondOperand = false;
-    } else {
-        calculator.displayValue = 
-        displayValue === '0' ? digit : displayValue + digit;
-    }
-};
-
-// start Wednesday Input Decimal 23:57
-
-// Input Decimal
