@@ -29,15 +29,19 @@ function getNumber(num) {
         step = 1;
         firstNumber = Number(numArray.join('')); // merge into one string
         display.value = firstNumber;
+        console.log(`${firstNumber} line 31`)
     } else if (step === 2) {
         secondNumArray.push(num);
         secondNumber = Number(secondNumArray.join(''));
         display.value = secondNumber;
+        console.log(`${secondNumber} line 36`)
+        rollingResult = firstNumber + secondNumber;
+        console.log(`${rollingResult} rollingResult`);
     }
 }
 
 function getOperator(operator) {
-    // console.log(operator);
+    console.log(operator);
     step = 2;
     operation = operator;
 }
@@ -72,7 +76,7 @@ function getEquals() {
         secondNumArray = [];
 
     } else if (operation === '-') {
-        console.log(`${result} before minus`);
+        console.log(`${operator} before minus`);
         result = firstNumber - secondNumber;
         display.value = result;
         firstNumber = result;
@@ -95,3 +99,8 @@ function getEquals() {
         secondNumArray = [];
     }
 }
+
+// Just added rollingResult line 38
+// looking to use this result as an if condition before
+// line 66 where calculation begins to allow operator using total to continue
+// the sum 12 + 7 - 1 = 19
