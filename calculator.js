@@ -1,4 +1,4 @@
-// Objevt values
+// Object values
 const calculator = {
     displayValue: '0',
     firstOperand: null,
