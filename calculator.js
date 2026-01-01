@@ -54,11 +54,6 @@ function operate() {
     }
 }
 
-// function getSymbol(symbol) {
-//     console.log(symbol);
-// }
-
-
 // If there is already a second number, calculate first
 function getEquals() {
     if (secondNumArray.length > 0) {
@@ -77,4 +72,9 @@ function clearDisplay() {
     result = 0;
     numArray = [];
     secondNumArray = [];
+}
+
+function getDecimal() {
+    // Act same as entering "."
+    getNumber('.');
 }
